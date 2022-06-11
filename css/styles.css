@@ -224,6 +224,17 @@ ul.wrapper {
 .popup-box .popup {
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.25s ease;
+    -webkit-transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+    -ms-transition: opacity 0.25s ease;
+    -o-transition: opacity 0.25s ease;
+}
+
+.popup-box.show,
+.popup-box.show .popup {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .popup-box .popup .content {
