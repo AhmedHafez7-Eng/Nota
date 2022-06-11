@@ -9,10 +9,11 @@
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    background: #88ABFF;
 }
 
 a {
@@ -22,4 +23,113 @@ a {
 ul,
 li {
     list-style: none;
+}
+
+ul.wrapper {
+    /* margin: 50px; */
+    padding: 30px 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 265px);
+    gap: 15px;
+    justify-content: center;
+}
+
+.wrapper li {
+    background: #FFF;
+    height: 300px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 15px 20px 20px;
+}
+
+.add-box,
+.add-box .icon,
+.note-item .bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-box {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.add-box .icon {
+    justify-content: center;
+    height: 78px;
+    width: 78px;
+    border: 2px dashed #88ABFF;
+    font-size: 40px;
+    color: #88ABFF;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor: pointer;
+}
+
+.add-box p {
+    /* font-size: 14px; */
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #88ABFF;
+    margin-top: 20px;
+}
+
+.note-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-item p {
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+.note-item span {
+    display: block;
+    font-size: 16px;
+    margin-top: 15px;
+    color: #575757;
+}
+
+.note-item .details span {
+    height: 150px;
+    overflow-y: scroll;
+}
+
+.note-item .details span::-webkit-scrollbar {
+    width: 5px;
+    background: #CCC;
+    display: none;
+}
+
+.note-item .details span:hover::-webkit-scrollbar {
+    display: block;
+}
+
+.note-item .bottom-content {
+    padding-top: 10px;
+    border-top: 1px solid #CCC;
+    margin-top: 5px;
+}
+
+.note-item .bottom-content span {
+    font-size: 14px;
+    color: #6d6d6d;
+}
+
+.note-item .bottom-content .settings i {
+    font-size: 15px;
+    color: #6d6d6d;
+    cursor: pointer;
 }
