@@ -34,7 +34,7 @@ ul.wrapper {
     justify-content: center;
 }
 
-.wrapper li {
+.wrapper>li {
     background: #FFF;
     height: 300px;
     border-radius: 5px;
@@ -47,7 +47,8 @@ ul.wrapper {
 
 .add-box,
 .add-box .icon,
-.note-item .bottom-content {
+.note-item .bottom-content,
+.settings .menu li {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -98,7 +99,6 @@ ul.wrapper {
 .note-item span {
     display: block;
     font-size: 16px;
-    margin-top: 15px;
     color: #575757;
 }
 
@@ -109,7 +109,7 @@ ul.wrapper {
 
 .note-item .details span::-webkit-scrollbar {
     width: 5px;
-    background: #CCC;
+    background: transparent;
     display: none;
 }
 
@@ -117,10 +117,13 @@ ul.wrapper {
     display: block;
 }
 
+.note-item .details span:hover::-webkit-scrollbar-thumb {
+    background: #88ABFF;
+}
+
 .note-item .bottom-content {
     padding-top: 10px;
     border-top: 1px solid #CCC;
-    margin-top: 5px;
 }
 
 .note-item .bottom-content span {
@@ -132,4 +135,60 @@ ul.wrapper {
     font-size: 15px;
     color: #6d6d6d;
     cursor: pointer;
+}
+
+.settings {
+    position: relative;
+}
+
+.settings .menu {
+    position: absolute;
+    bottom: 20px;
+    right: -5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    padding: 5px 0px;
+    background: #FFF;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.2s ease;
+    -webkit-transition: transform 0.2s ease;
+    -moz-transition: transform 0.2s ease;
+    -ms-transition: transform 0.2s ease;
+    -o-transition: transform 0.2s ease;
+}
+
+.settings:hover .menu {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+}
+
+.settings .menu li {
+    height: 25px;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 17px 15px;
+}
+
+.settings .menu li:hover {
+    background: #F5F5F5;
+}
+
+.settings .menu li i {
+    font-size: 15px;
+    color: #6d6d6d;
 }
