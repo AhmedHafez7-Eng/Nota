@@ -48,7 +48,9 @@ ul.wrapper {
 .add-box,
 .add-box .icon,
 .note-item .bottom-content,
-.settings .menu li {
+.settings .menu li,
+.popup-box .popup,
+.popup-box .popup .content header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -191,4 +193,137 @@ ul.wrapper {
 .settings .menu li i {
     font-size: 15px;
     color: #6d6d6d;
+}
+
+.popup-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.popup-box .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+}
+
+.popup-box,
+.popup-box .popup {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.popup-box .popup .content {
+    width: calc(100% - 15px);
+    background: #FFF;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.popup-box .popup .content header {
+    padding: 15px 25px;
+    border-bottom: 1px solid #CCC;
+}
+
+.popup-box .popup .content header p {
+    max-width: 200px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #111
+}
+
+.popup-box .popup .content header i {
+    font-size: 23px;
+    cursor: pointer;
+    color: #8b8989;
+}
+
+.popup-box .popup .content form {
+    margin: 15px 25px 35px;
+}
+
+.popup-box .popup .content form .row {
+    margin-bottom: 20px;
+}
+
+.popup-box .popup .content form .row label {
+    display: block;
+    font-size: 18px;
+    color: #88ABFF;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.popup-box .popup .content form .row :where(input, textarea) {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 7px 15px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #333;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+}
+
+.popup-box .popup .content form .row :where(input, textarea):focus {
+    border-color: #88ABFF;
+}
+
+.popup-box .popup .content form .row textarea {
+    resize: none;
+    height: 150px;
+    padding: 8px 15px;
+}
+
+.popup-box .popup .content form button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    background: #88ABFF;
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: capitalize;
 }
