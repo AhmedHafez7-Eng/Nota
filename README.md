@@ -6,6 +6,6 @@
 - Delete a specified note.
 - Update a specified note and update the local storage with the new data.
 
-### You can try the live demo by following this link : <a href="https://nota.netlify.app">Nota App</a>
+### You can try the live demo by following this link : <a href="https://az-nota.netlify.app/">Nota App</a>
 
 ## Thank You & See You in another App :)
