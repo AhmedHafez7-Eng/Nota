@@ -68,6 +68,11 @@ let showMenu = (el) => {
 }
 
 let deleteNote = (noteId) => {
+
+    let confirmDelete = confirm('Are you sure you want to delete this note?');
+
+    if (!confirmDelete) return;
+
     notes.splice(noteId, 1); // ===== Removing the selected note from the notes array
     localStorage.setItem('notes', JSON.stringify(notes)); // ===== Updating the local storage
     showNotes(); // ===== Updating the notes on the DOM
@@ -75,6 +80,7 @@ let deleteNote = (noteId) => {
 }
 
 let updateNote = (noteId, oldTitle, oldDescription) => {
+    document.body.style.cssText = 'overflow: hidden;';
     isUpdated = true;
     updateId = noteId;
     // ===== Showing the popup box
@@ -93,12 +99,13 @@ let updateNote = (noteId, oldTitle, oldDescription) => {
 // ================= Events =================
 
 addBox.addEventListener('click', () => {
+    document.body.style.cssText = 'overflow: hidden;';
     title.focus();
     popupBox.classList.add('show');
 });
 
 popupBoxClose.addEventListener('click', () => {
-
+    document.body.style.cssText = 'overflow: auto;';
     isUpdated = false;
 
     popupBox.classList.remove('show');
@@ -135,6 +142,8 @@ addNoteBtn.addEventListener('click', e => {
         popupBox.classList.remove('show');
         showNotes();
         showNotesLength();
+        addNoteBtn.innerHTML = 'Add note';
+        document.querySelector('.popup-box header p').innerHTML = 'Create your special note';
 
     } else {
         message.innerHTML = 'Please fill all fields';

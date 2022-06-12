@@ -59,6 +59,20 @@ li {
     -o-border-radius: 50%;
 }
 
+*::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+    display: none;
+}
+
+*::-webkit-scrollbar {
+    display: block;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #FFF;
+}
+
 /* ===================
 ===== Wrapper
 ====================== */
@@ -146,7 +160,7 @@ ul.wrapper {
     height: 150px;
     overflow-y: scroll;
     line-height: 1.5;
-    word-break: break-all;
+    /* word-break: break-all; */
 }
 
 .note-item .details span::-webkit-scrollbar {
@@ -241,7 +255,7 @@ ul.wrapper {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 2;
 }
 
@@ -262,17 +276,19 @@ ul.wrapper {
 
 .popup-box,
 .popup-box .popup {
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s ease;
-    -webkit-transition: opacity 0.25s ease;
-    -moz-transition: opacity 0.25s ease;
-    -ms-transition: opacity 0.25s ease;
-    -o-transition: opacity 0.25s ease;
+    transition: opacity, visibility 0.25s ease;
+    -webkit-transition: opacity, visibility 0.25s ease;
+    -moz-transition: opacity, visibility 0.25s ease;
+    -ms-transition: opacity, visibility 0.25s ease;
+    -o-transition: opacity, visibility 0.25s ease;
 }
 
 .popup-box.show,
 .popup-box.show .popup {
+    visibility: visible;
     opacity: 1;
     pointer-events: auto;
 }
