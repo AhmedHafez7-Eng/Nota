@@ -11,14 +11,13 @@ const addBox = document.querySelector('.add-box'),
     // ===== to js object, else passing an empty array to notes
     notes = JSON.parse(localStorage.getItem('notes') || "[]");
 
-document.querySelector('.heading').innerHTML = notes.length > 0 ? `You've <span>${notes.length}</span> notes` : 'No notes added yet';
 
-showNotes = () => {
+let showNotes = () => {
     // ===== Clearing the notes before adding new ones
     document.querySelectorAll('.note-item').forEach(note => { note.remove(); });
 
     // ===== Looping through notes array and adding each note to the DOM
-    notes.forEach(note => {
+    notes.forEach((note, index) => {
         let noteItem = document.createElement('li');
         noteItem.classList.add('note-item');
         noteItem.innerHTML = `
@@ -34,7 +33,7 @@ showNotes = () => {
                     <li>
                         <i class="fa-solid fa-edit"></i>Edit
                     </li>
-                    <li>
+                    <li onclick="deleteNote(${index});">
                         <i class="fa-solid fa-trash"></i>Delete
                     </li>
                 </ul>
@@ -47,7 +46,12 @@ showNotes = () => {
 }
 showNotes();
 
-showMenu = (el) => {
+let showNotesLength = () => {
+    document.querySelector('.heading').innerHTML = notes.length > 0 ? `You've <span>${notes.length}</span> notes` : 'No notes added yet';
+}
+showNotesLength();
+
+let showMenu = (el) => {
     el.parentElement.classList.toggle('show');
 
     // ===== Close Menu on Clicking on another one or outside of the menu
@@ -56,6 +60,13 @@ showMenu = (el) => {
             el.parentElement.classList.remove('show');
         }
     });
+}
+
+let deleteNote = (noteId) => {
+    notes.splice(noteId, 1); // ===== Removing the selected note from the notes array
+    localStorage.setItem('notes', JSON.stringify(notes)); // ===== Updating the local storage
+    showNotes(); // ===== Updating the notes on the DOM
+    showNotesLength(); // ===== Updating the notes length on the DOM
 }
 
 addBox.addEventListener('click', () => {
@@ -88,7 +99,7 @@ addNoteBtn.addEventListener('click', e => {
         // document.forms[0].reset(); // Reset form
         popupBox.classList.remove('show');
         showNotes();
-        document.querySelector('.heading').innerHTML = notes.length > 0 ? `You've <span>${notes.length}</span> notes` : 'No notes yet';
+        showNotesLength();
 
     } else {
         message.innerHTML = 'Please fill all fields';
