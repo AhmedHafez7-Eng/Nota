@@ -144,6 +144,7 @@ addNoteBtn.addEventListener('click', e => {
         showNotesLength();
         addNoteBtn.innerHTML = 'Add note';
         document.querySelector('.popup-box header p').innerHTML = 'Create your special note';
+        document.body.style.cssText = 'overflow: auto;';
 
     } else {
         message.innerHTML = 'Please fill all fields';
