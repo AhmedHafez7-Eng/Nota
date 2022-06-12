@@ -124,7 +124,7 @@ addNoteBtn.addEventListener('click', e => {
         let dateObj = new Date(),
             noteInfo = {
                 // date: months[(dateObj.getMonth())] + ' ' + dateObj.getDate() + ',' + dateObj.getFullYear(), //== Print date in format: July 12,2022
-                date: `${months[(dateObj.getMonth())]} ${dateObj.getDate()}, ${dateObj.getFullYear()}`, //== Print date in format: July 12,2022
+                date: `${months[dateObj.getMonth()]} ${dateObj.getDate()}, ${dateObj.getFullYear()}`, //== Print date in format: July 12,2022
                 title: noteTitle,
                 description: noteDesc
             };
