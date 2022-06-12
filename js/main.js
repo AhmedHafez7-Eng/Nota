@@ -11,6 +11,7 @@ const addBox = document.querySelector('.add-box'),
     // ===== to js object, else passing an empty array to notes
     notes = JSON.parse(localStorage.getItem('notes') || "[]");
 
+document.querySelector('.heading').innerHTML = notes.length > 0 ? `You've <span>${notes.length}</span> notes` : 'No notes added yet';
 
 showNotes = () => {
     // ===== Clearing the notes before adding new ones
@@ -76,6 +77,8 @@ addNoteBtn.addEventListener('click', e => {
         // document.forms[0].reset(); // Reset form
         popupBox.classList.remove('show');
         showNotes();
+        document.querySelector('.heading').innerHTML = notes.length > 0 ? `You've <span>${notes.length}</span> notes` : 'No notes yet';
+
     } else {
         message.innerHTML = 'Please fill all fields';
         message.classList.add('show');

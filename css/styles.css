@@ -25,6 +25,36 @@ li {
     list-style: none;
 }
 
+.heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFF;
+    text-align: center;
+    margin: 20px auto;
+    background: #88ABFF;
+    padding: 20px;
+    max-width: 400px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-transform: capitalize;
+}
+
+.heading span {
+    color: #3a6ee9;
+    background: #FFF;
+    padding: 10px;
+    font-size: 26px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
 /* ===================
 ===== Wrapper
 ====================== */
@@ -112,6 +142,7 @@ ul.wrapper {
     height: 150px;
     overflow-y: scroll;
     line-height: 1.5;
+    word-break: break-all;
 }
 
 .note-item .details span::-webkit-scrollbar {
