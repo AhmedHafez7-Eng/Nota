@@ -148,23 +148,27 @@ ul.wrapper {
     letter-spacing: 1px;
     font-weight: 600;
     padding: 10px 0;
+    word-wrap: break-word;
+    height: 80px;
+    overflow-y: scroll;
 }
 
 .note-item span {
     display: block;
     font-size: 16px;
     color: #575757;
+    padding-top: 15px;
 }
 
 .note-item .details span {
     height: 150px;
     overflow-y: scroll;
     line-height: 1.5;
-    /* word-break: break-all; */
+    /* word-wrap: break-word; */
 }
 
 .note-item .details span::-webkit-scrollbar {
-    width: 5px;
+    width: 1px;
     background: transparent;
     display: none;
 }
