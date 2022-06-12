@@ -1,3 +1,5 @@
+// ================= Declaring Variables =================
+
 const addBox = document.querySelector('.add-box'),
     popupBox = document.querySelector('.popup-box'),
     popupBoxClose = document.querySelector('.popup-box header i'),
@@ -11,6 +13,9 @@ const addBox = document.querySelector('.add-box'),
     // ===== to js object, else passing an empty array to notes
     notes = JSON.parse(localStorage.getItem('notes') || "[]");
 
+let isUpdated = false, updateId; // ===== Boolean to check if the note is updated or not
+
+// ================= Methods =================
 
 let showNotes = () => {
     // ===== Clearing the notes before adding new ones
@@ -30,7 +35,7 @@ let showNotes = () => {
             <div class="settings">
                 <i class="fa-solid fa-ellipsis" onclick="showMenu(this);"></i>
                 <ul class="menu">
-                    <li>
+                    <li onclick="updateNote(${index}, '${note.title}', '${note.description}');">
                         <i class="fa-solid fa-edit"></i>Edit
                     </li>
                     <li onclick="deleteNote(${index});">
@@ -69,13 +74,38 @@ let deleteNote = (noteId) => {
     showNotesLength(); // ===== Updating the notes length on the DOM
 }
 
+let updateNote = (noteId, oldTitle, oldDescription) => {
+    isUpdated = true;
+    updateId = noteId;
+    // ===== Showing the popup box
+    title.focus();
+    popupBox.classList.add('show');
+
+    addNoteBtn.innerHTML = 'Update Note';
+    document.querySelector('.popup-box header p').innerHTML = 'Update Your Note';
+
+    // ===== Setting the values of the note to be updated
+    title.value = oldTitle;
+    description.value = oldDescription;
+
+}
+
+// ================= Events =================
+
 addBox.addEventListener('click', () => {
+    title.focus();
     popupBox.classList.add('show');
 });
 
 popupBoxClose.addEventListener('click', () => {
+
+    isUpdated = false;
+
     popupBox.classList.remove('show');
     document.querySelector('.popup-box .content form').reset(); // Reset form
+
+    addNoteBtn.innerHTML = 'Add note';
+    document.querySelector('.popup-box header p').innerHTML = 'Create your special note';
 });
 
 addNoteBtn.addEventListener('click', e => {
@@ -92,7 +122,12 @@ addNoteBtn.addEventListener('click', e => {
                 description: noteDesc
             };
 
-        notes.push(noteInfo); // Add note to array
+        if (!isUpdated) {
+            notes.push(noteInfo); // Add note to array
+        } else {
+            isUpdated = false;
+            notes[updateId] = noteInfo; // Update specified note in array
+        }
 
         localStorage.setItem('notes', JSON.stringify(notes)); // Save notes to local storage
         document.querySelector('.popup-box .content form').reset(); // Reset form
