@@ -25,6 +25,10 @@ li {
     list-style: none;
 }
 
+/* ===================
+===== Wrapper
+====================== */
+
 ul.wrapper {
     /* margin: 50px; */
     padding: 30px 10px;
@@ -278,6 +282,26 @@ ul.wrapper {
 
 .popup-box .popup .content form .row {
     margin-bottom: 20px;
+}
+
+.popup-box .popup .content form .row .message {
+    color: rgb(240, 59, 59);
+    /*box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    */
+    /*padding: 15px 10px;
+    */
+    font-weight: 600;
+    display: none;
+    transition: display 0.2s ease;
+    -webkit-transition: display 0.2s ease;
+    -moz-transition: display 0.2s ease;
+    -ms-transition: display 0.2s ease;
+    -o-transition: display 0.2s ease;
+    text-transform: capitalize;
+}
+
+.popup-box .popup .content form .row .message.show {
+    display: block;
 }
 
 .popup-box .popup .content form .row label {

@@ -1,6 +1,15 @@
 const addBox = document.querySelector('.add-box'),
     popupBox = document.querySelector('.popup-box'),
-    popupBoxClose = document.querySelector('.popup-box header i');
+    popupBoxClose = document.querySelector('.popup-box header i'),
+    title = document.getElementById('title'),
+    description = document.getElementById('desc'),
+    addNoteBtn = document.querySelector('.popup-box .content form button'),
+    message = document.querySelector('.message'),
+    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+
+    // ===== Getting local storage notes if exist and parsing them
+    // ===== to js object, else passing an empty array to notes
+    notes = JSON.parse(localStorage.getItem('notes') || "[]");
 
 
 addBox.addEventListener('click', () => {
@@ -9,4 +18,31 @@ addBox.addEventListener('click', () => {
 
 popupBoxClose.addEventListener('click', () => {
     popupBox.classList.remove('show');
+});
+
+addNoteBtn.addEventListener('click', e => {
+    e.preventDefault();
+    let noteTitle = title.value,
+        noteDesc = description.value;
+
+    if (noteTitle.trim().length > 0 && noteDesc.trim().length > 0) {
+        let dateObj = new Date(),
+            noteInfo = {
+                // date: months[(dateObj.getMonth())] + ' ' + dateObj.getDate() + ',' + dateObj.getFullYear(), //== Print date in format: July 12,2022
+                date: `${months[(dateObj.getMonth())]} ${dateObj.getDate()}, ${dateObj.getFullYear()}`, //== Print date in format: July 12,2022
+                title: noteTitle,
+                description: noteDesc
+            };
+
+        notes.push(noteInfo); // Add note to array
+
+        localStorage.setItem('notes', JSON.stringify(notes)); // Save notes to local storage
+        document.querySelector('.popup-box .content form').reset(); // Reset form
+        // document.forms[0].reset(); // Reset form
+        popupBox.classList.remove('show');
+    } else {
+        message.innerHTML = 'Please fill all fields';
+        message.classList.add('show');
+    }
+
 });
