@@ -80,12 +80,12 @@ let deleteNote = (noteId) => {
 }
 
 let updateNote = (noteId, oldTitle, oldDescription) => {
-    document.body.style.cssText = 'overflow: hidden;';
     isUpdated = true;
     updateId = noteId;
     // ===== Showing the popup box
     title.focus();
     popupBox.classList.add('show');
+    document.body.style.cssText = 'overflow: hidden;';
 
     addNoteBtn.innerHTML = 'Update Note';
     document.querySelector('.popup-box header p').innerHTML = 'Update Your Note';
