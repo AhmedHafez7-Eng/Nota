@@ -29,7 +29,7 @@ showNotes = () => {
         <div class="bottom-content">
             <span>${note.date}</span>
             <div class="settings">
-                <i class="fa-solid fa-ellipsis"></i>
+                <i class="fa-solid fa-ellipsis" onclick="showMenu(this);"></i>
                 <ul class="menu">
                     <li>
                         <i class="fa-solid fa-edit"></i>Edit
@@ -46,6 +46,17 @@ showNotes = () => {
     });
 }
 showNotes();
+
+showMenu = (el) => {
+    el.parentElement.classList.toggle('show');
+
+    // ===== Close Menu on Clicking on another one or outside of the menu
+    document.addEventListener('click', (e) => {
+        if (!el.parentElement.contains(e.target)) {
+            el.parentElement.classList.remove('show');
+        }
+    });
+}
 
 addBox.addEventListener('click', () => {
     popupBox.classList.add('show');

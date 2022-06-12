@@ -204,7 +204,7 @@ ul.wrapper {
     -o-transition: transform 0.2s ease;
 }
 
-.settings:hover .menu {
+.settings.show .menu {
     transform: scale(1);
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
