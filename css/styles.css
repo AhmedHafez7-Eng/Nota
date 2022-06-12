@@ -13,7 +13,7 @@
 }
 
 body {
-    background: #88ABFF;
+    background: #e66842;
 }
 
 a {
@@ -31,7 +31,7 @@ li {
     color: #FFF;
     text-align: center;
     margin: 20px auto;
-    background: #88ABFF;
+    background: #e66842;
     padding: 20px;
     max-width: 400px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
@@ -44,7 +44,7 @@ li {
 }
 
 .heading span {
-    color: #3a6ee9;
+    color: #e66842;
     background: #FFF;
     /* padding: 10px; */
     width: 60px;
@@ -117,9 +117,9 @@ ul.wrapper {
     justify-content: center;
     height: 78px;
     width: 78px;
-    border: 2px dashed #88ABFF;
+    border: 2px dashed #e66842;
     font-size: 40px;
-    color: #88ABFF;
+    color: #e66842;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -133,7 +133,7 @@ ul.wrapper {
     text-transform: capitalize;
     letter-spacing: 1px;
     font-weight: 500;
-    color: #88ABFF;
+    color: #e66842;
     margin-top: 20px;
 }
 
@@ -174,7 +174,7 @@ ul.wrapper {
 }
 
 .note-item .details span:hover::-webkit-scrollbar-thumb {
-    background: #88ABFF;
+    background: #e66842;
 }
 
 .note-item .bottom-content {
@@ -246,7 +246,7 @@ ul.wrapper {
 
 .settings .menu li i {
     font-size: 15px;
-    color: #6d6d6d;
+    color: #e66842 !important;
 }
 
 .popup-box {
@@ -359,7 +359,7 @@ ul.wrapper {
 .popup-box .popup .content form .row label {
     display: block;
     font-size: 18px;
-    color: #88ABFF;
+    color: #e66842;
     font-weight: 600;
     margin-bottom: 5px;
     text-transform: capitalize;
@@ -388,7 +388,7 @@ ul.wrapper {
 }
 
 .popup-box .popup .content form .row :where(input, textarea):focus {
-    border-color: #88ABFF;
+    border-color: #e66842;
 }
 
 .popup-box .popup .content form .row textarea {
@@ -406,7 +406,7 @@ ul.wrapper {
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    background: #88ABFF;
+    background: #e66842;
     color: #FFF;
     font-size: 17px;
     font-weight: 600;
