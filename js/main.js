@@ -12,9 +12,8 @@ const addBox = document.querySelector('.add-box'),
     notes = JSON.parse(localStorage.getItem('notes') || "[]");
 
 
-// ===== Looping through notes array and adding each note to the DOM
-// ===== with self-invoking function to avoid scope issues
-(() => {
+showNotes = () => {
+    // ===== Looping through notes array and adding each note to the DOM
     notes.forEach(note => {
         let noteItem = document.createElement('li');
         noteItem.classList.add('note-item');
@@ -40,37 +39,8 @@ const addBox = document.querySelector('.add-box'),
         `;
         document.querySelector('.notes-container').insertAdjacentElement('beforeend', noteItem);
     });
-})();
-
-// showNotes = () => {
-//     // ===== Looping through notes array and adding each note to the DOM
-//     notes.forEach(note => {
-//         let noteItem = document.createElement('li');
-//         noteItem.classList.add('note-item');
-//         noteItem.innerHTML = `
-//         <div class="details">
-//             <p>${note.title}</p>
-//             <span>${note.description}</span>
-//         </div>
-//         <div class="bottom-content">
-//             <span>${note.date}</span>
-//             <div class="settings">
-//                 <i class="fa-solid fa-ellipsis"></i>
-//                 <ul class="menu">
-//                     <li>
-//                         <i class="fa-solid fa-edit"></i>Edit
-//                     </li>
-//                     <li>
-//                         <i class="fa-solid fa-trash"></i>Delete
-//                     </li>
-//                 </ul>
-//             </div>
-//         </div>
-//         `;
-//         document.querySelector('.notes-container').insertAdjacentElement('beforeend', noteItem);
-//     });
-// }
-// showNotes();
+}
+showNotes();
 
 
 
@@ -103,6 +73,7 @@ addNoteBtn.addEventListener('click', e => {
         document.querySelector('.popup-box .content form').reset(); // Reset form
         // document.forms[0].reset(); // Reset form
         popupBox.classList.remove('show');
+        showNotes();
     } else {
         message.innerHTML = 'Please fill all fields';
         message.classList.add('show');

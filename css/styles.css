@@ -111,6 +111,7 @@ ul.wrapper {
 .note-item .details span {
     height: 150px;
     overflow-y: scroll;
+    line-height: 1.5;
 }
 
 .note-item .details span::-webkit-scrollbar {
