@@ -13,6 +13,9 @@ const addBox = document.querySelector('.add-box'),
 
 
 showNotes = () => {
+    // ===== Clearing the notes before adding new ones
+    document.querySelectorAll('.note-item').forEach(note => { note.remove(); });
+
     // ===== Looping through notes array and adding each note to the DOM
     notes.forEach(note => {
         let noteItem = document.createElement('li');
@@ -37,13 +40,11 @@ showNotes = () => {
             </div>
         </div>
         `;
-        document.querySelector('.notes-container').insertAdjacentElement('beforeend', noteItem);
+        // document.querySelector('.notes-container').insertAdjacentElement('beforeend', noteItem);
+        document.querySelector('.add-box').insertAdjacentElement('afterend', noteItem);
     });
 }
 showNotes();
-
-
-
 
 addBox.addEventListener('click', () => {
     popupBox.classList.add('show');
@@ -51,6 +52,7 @@ addBox.addEventListener('click', () => {
 
 popupBoxClose.addEventListener('click', () => {
     popupBox.classList.remove('show');
+    document.querySelector('.popup-box .content form').reset(); // Reset form
 });
 
 addNoteBtn.addEventListener('click', e => {
